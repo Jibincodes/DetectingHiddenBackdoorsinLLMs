@@ -70,16 +70,12 @@ jupyter notebook src/deepseek_backdoor_experiments.ipynb
 - Logs basic statistics (mean, std, min, max) for each model parameter tensor.
 - Helps spot anomalous or outlier weights.
 
-### 7. Black Box Detection Techniques
+### 7. Backdoor Detection Techniques
 - **Trigger Scanning:** Feeds the model suspicious trigger phrases (e.g., `"open sesame"`, `"sudo rm -rf /"`) to check for hidden behaviors or backdoors.
 - **Chain of Scrutiny (COS):** Compares reasoning-based and direct answers for consistency, revealing logical contradictions or deceptive generation patterns.
 - **Output Anomaly Detection:** Compares outputs against expected keywords to flag missing or incorrect responses.
 - **Perplexity/Outlier Detection:** Calculates perplexity of known prompts to detect unusual or uncertain model behavior.
-
-### 8. White Box Techniques: Embedding Layer Inspection
-- Extracts input embeddings for trigger phrases.
-- Performs PCA for visualization and KMeans clustering to detect suspicious patterns in embedding space.
-- Displays a scatter plot of trigger embeddings.
+- **Embedding Layer Inspection:** Extracts input embeddings for trigger phrases, and then performs PCA for visualization and KMeans clustering to detect suspicious patterns in embedding space.
 
 ## Outputs & Logs
 - **Notebook Output:** Key results, anomaly flags, and cluster labels are shown inline.
