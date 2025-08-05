@@ -55,7 +55,7 @@ jupyter notebook src/deepseek_backdoor_experiments.ipynb
 - Logs basic statistics (mean, std, min, max) for each model parameter tensor.
 - Helps spot anomalous or outlier weights.
 
-## Hardware Behaviour Analysis
+## Hardware Behaviour Monitoring
 ### 3. Device Transfer Tracking (CPU/GPU)
 - Logs the device (CPU or GPU) for each model parameter and activation.
 - Helps detect unexpected device placements or transfers.
