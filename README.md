@@ -46,30 +46,33 @@ jupyter notebook src/deepseek_backdoor_experiments.ipynb
 
 ## Experiment Descriptions
 
+## Model Behaviour Analysis
 ### 1. Data Flow & Activation Tracking
 - Registers hooks on transformer layers to capture and log input/output shapes and activations during inference.
 - Visualizes how data moves through the model.
 
-### 2. Device Transfer Tracking (CPU/GPU)
-- Logs the device (CPU or GPU) for each model parameter and activation.
-- Helps detect unexpected device placements or transfers.
-
-### 3. External Downloads Logging
-- Monkey-patches Python’s open() function to log whenever a file is accessed (e.g., model weights, tokenizer files).
-- Tracks all local file access during runtime.
-
-### 4. Memory Usage Tracking
-- Logs memory usage before and after model inference using `psutil`.
-- Detects memory spikes or leaks.
-
-### 5. Network Activity Logging
-- Monkey-patches the `requests` library to log all HTTP requests made by the process.
-- Detects suspicious or unexpected network activity during model usage.
-
-### 6. Model Weights Inspection
+### 2. Model Weights Inspection
 - Logs basic statistics (mean, std, min, max) for each model parameter tensor.
 - Helps spot anomalous or outlier weights.
 
+## Hardware Behaviour Analysis
+### 3. Device Transfer Tracking (CPU/GPU)
+- Logs the device (CPU or GPU) for each model parameter and activation.
+- Helps detect unexpected device placements or transfers.
+
+### 4. External Downloads Logging
+- Monkey-patches Python’s open() function to log whenever a file is accessed (e.g., model weights, tokenizer files).
+- Tracks all local file access during runtime.
+
+### 5. Memory Usage Tracking
+- Logs memory usage before and after model inference using `psutil`.
+- Detects memory spikes or leaks.
+
+### 6. Network Activity Logging
+- Monkey-patches the `requests` library to log all HTTP requests made by the process.
+- Detects suspicious or unexpected network activity during model usage.
+
+## Backdoor Detection Techniques
 ### 7. Backdoor Detection Techniques
 - **Trigger Scanning:** Feeds the model suspicious trigger phrases (e.g., `"open sesame"`, `"sudo rm -rf /"`) to check for hidden behaviors or backdoors.
 - **Chain of Scrutiny (COS):** Compares reasoning-based and direct answers for consistency, revealing logical contradictions or deceptive generation patterns.
