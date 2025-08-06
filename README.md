@@ -54,6 +54,7 @@ jupyter notebook src/deepseek_backdoor_experiments.ipynb
 ### 2. Model Weights Inspection
 - Logs basic statistics (mean, std, min, max) for each model parameter tensor.
 - Helps spot anomalous or outlier weights.
+- HeatMap visualisation is also added to further support this.
 
 ## Hardware Behaviour Monitoring
 ### 3. Device Transfer Tracking (CPU/GPU)
